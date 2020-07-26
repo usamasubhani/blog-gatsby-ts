@@ -17,6 +17,7 @@ jobs:
     - name: Build Gatsby site
       run: |
         npm install
+        npm install -g gatsby-cli
         CI=flase gatsby build
 
     - name: Install Surge
