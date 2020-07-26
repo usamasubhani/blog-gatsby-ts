@@ -751,3 +751,9 @@ pre tt::after {
     font-size: 100%;
   }
 }
+
+/* custom */
+
+body {
+  text-align: center;
+}
