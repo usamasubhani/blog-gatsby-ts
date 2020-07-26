@@ -1,6 +1,6 @@
 name: Build and Deply
 
-on: [content-updated, push]
+on: [push, repository_dispatch]
 
 jobs:
   build:
