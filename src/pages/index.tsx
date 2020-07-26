@@ -10,6 +10,7 @@ export const query = graphql`
       edges {
         node {
           id
+          slug
           title
           updatedAt
           body {
@@ -30,10 +31,11 @@ const BlogPosts = ({data}: Props) => {
   const documents = data.allContentfulBlogPost.edges
     .filter(edge => edge.node.body)
     .map(edge => {
-      const { id, title } = edge.node;
+      const { id, title, slug } = edge.node;
       const { json } = edge.node.body || { json: {} };
-      return { id, title, json };
+      return { id, title, slug, json };
     });
+
   return (
     <Layout>
        <SEO title="Blog Posts" />
@@ -41,11 +43,7 @@ const BlogPosts = ({data}: Props) => {
        {documents.map(node => {
         return (
           <div key={node.id}>
-            <h2 key={`${node.id}-title`}>{node.title}</h2>
-            <ContentfulRichText
-              document={node.json}
-              key={`${node.id}-content`}
-            />
+            <Link to={`/${node.slug}`} key={`${node.id}-title`}>{node.title}</Link>
           </div>
         );
       })}
