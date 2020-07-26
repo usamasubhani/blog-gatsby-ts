@@ -8,7 +8,7 @@ type Props = {
 const Header: React.FC<Props> = ({ siteTitle }: Props) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `black`,
       marginBottom: `1.45rem`,
     }}
   >
