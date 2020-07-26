@@ -1,33 +1,58 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
-
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
+import ContentfulRichText from '../components/contentfulRichText';
 
-const IndexPage: React.FC = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div
-      style={{
-        maxWidth: `300px`,
-        marginBottom: `1.45rem`,
-      }}
-    >
-      <Image />
-    </div>
-    <ul>
-      <li>
-        <Link to="/page-2/">Go to page 2</Link>
-      </li>
-      <li>
-        <Link to="/blogPosts/">Go to blog posts (Source: Contentful)</Link>
-      </li>
-    </ul>
-  </Layout>
-);
+export const query = graphql`
+  query BlogPagesQuery {
+    allContentfulBlogPost(limit: 10) {
+      edges {
+        node {
+          id
+          title
+          updatedAt
+          body {
+            json
+          }
+        }
+      }
+    }
+  }
+`;
 
-export default IndexPage;
+type Props = {
+  data: any;
+};
+
+const BlogPosts = ({data}: Props) => {
+  
+  const documents = data.allContentfulBlogPost.edges
+    .filter(edge => edge.node.body)
+    .map(edge => {
+      const { id, title } = edge.node;
+      const { json } = edge.node.body || { json: {} };
+      return { id, title, json };
+    });
+  return (
+    <Layout>
+       <SEO title="Blog Posts" />
+       <h1>Blog Posts</h1>
+       {documents.map(node => {
+        return (
+          <div key={node.id}>
+            <h2 key={`${node.id}-title`}>{node.title}</h2>
+            <ContentfulRichText
+              document={node.json}
+              key={`${node.id}-content`}
+            />
+          </div>
+        );
+      })}
+    </Layout>
+  )
+}
+
+export default BlogPosts;
+
+
