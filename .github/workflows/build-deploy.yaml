@@ -1,6 +1,6 @@
 name: Build and Deply
 
-on: [content-updated, push]
+on: [push, repository_dispatch]
 
 jobs:
   build:
@@ -17,7 +17,11 @@ jobs:
     - name: Build Gatsby site
       run: |
         npm install
-        gatsby build
+        npm install -g gatsby-cli
+        CI=flase gatsby build
+        env:
+          CONTENTFUL_SPACE_ID: ${{secrets.SPACE_ID}}
+          CONTENTFUL_ACCESS_TOKEN: ${{secrets.CONTENTFUL_TOKEN}}
 
     - name: Install Surge
       run: npm install -g surge
