@@ -35,18 +35,27 @@ const BlogPosts = ({data}: Props) => {
       const { json } = edge.node.body || { json: {} };
       return { id, title, slug, json };
     });
-
+    
   return (
     <Layout>
        <SEO title="Blog Posts" />
-       <h1>Blog Posts</h1>
-       {documents.map(node => {
-        return (
-          <div key={node.id}>
-            <Link to={`/${node.slug}`} key={`${node.id}-title`}>{node.title}</Link>
-          </div>
-        );
-      })}
+       <div className="posts-container">
+        {documents.map(node => {
+          console.log(node.json)
+          return (
+            <div key={node.id} className="post-link-container">
+              <Link className="post-link"
+              to={`/${node.slug}`} 
+              key={`${node.id}-title`}>
+                {node.title}
+              </Link>
+              <ContentfulRichText 
+                document={node.json.content[0]}
+                />
+            </div>
+          );
+        })}
+      </div>
     </Layout>
   )
 }

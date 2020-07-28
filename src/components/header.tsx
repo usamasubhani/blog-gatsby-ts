@@ -9,7 +9,9 @@ const Header: React.FC<Props> = ({ siteTitle }: Props) => (
   <header
     style={{
       background: `black`,
+      color: `white`,
       marginBottom: `1.45rem`,
+      display: "flex",
     }}
   >
     <div
@@ -30,6 +32,27 @@ const Header: React.FC<Props> = ({ siteTitle }: Props) => (
           {siteTitle}
         </Link>
       </h1>
+      
+      
+    </div>
+    <div
+      style={{
+        margin: `0 auto`,
+        maxWidth: 960,
+        padding: `1.45rem 1.0875rem`,
+      }}
+    >
+      <h3 style={{ margin: 5 }}>
+        <Link
+          to="https://twitter.com/basedusama"
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          twitter
+        </Link>
+      </h3>
     </div>
   </header>
 );
