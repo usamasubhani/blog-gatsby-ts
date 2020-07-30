@@ -751,16 +751,25 @@ pre tt::after {
 /* custom */
 
 .post-link-container {
-  /* max-width: 400px; */
+  max-width: 35%;
   /* border-radius: 50px; */
   border: 0.1px solid gray;
-  border-radius: 11px;
+  border-radius: 17px;
   background: #ffffff;
-  box-shadow:  12px 12px 23px #d9d9d9, 
-               -12px -12px 23px #ffffff;
-  margin: 50px;
-  padding: 10px;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #d9d9d9, 
+              -20px -20px 60px #ffffff;
+  margin: 60px;
+  padding: 30px;
 }
+
+.post-link-container:hover {
+  border-radius: 17px;
+  box-shadow:  16px 16px 100px #a1a1a1, 
+  -16px -16px 100px #ffffff;
+  transition-duration: 0.2s;
+}
+
 .post-link {
   display: block;
   text-decoration: none;
@@ -804,11 +813,24 @@ pre tt::after {
   width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   html {
     font-size: 100%;
   }
   .post-link-container {
     max-width: 100%; 
+    margin: 30px 5px 30px 5px;
   }
+}
+
+footer {
+  font-size: small;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: black; */
+  color: black;
+  text-align: center;
+  padding-top: 20px;
 }

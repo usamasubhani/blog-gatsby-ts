@@ -8,7 +8,7 @@ type Props = {
 const Header: React.FC<Props> = ({ siteTitle }: Props) => (
   <header
     style={{
-      background: `black`,
+      // background: `black`,
       color: `white`,
       marginBottom: `1.45rem`,
       display: "flex",
@@ -25,14 +25,15 @@ const Header: React.FC<Props> = ({ siteTitle }: Props) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            // color: `white`,
             textDecoration: `none`,
           }}
         >
           {siteTitle}
+          
         </Link>
       </h1>
-      
+      <p style={{fontSize: `x-small`, color: `blueviolet`}}> by Usama Subhani</p>
       
     </div>
     <div
@@ -46,7 +47,7 @@ const Header: React.FC<Props> = ({ siteTitle }: Props) => (
         <Link
           to="https://twitter.com/basedusama"
           style={{
-            color: `white`,
+            // color: `white`,
             textDecoration: `none`,
           }}
         >

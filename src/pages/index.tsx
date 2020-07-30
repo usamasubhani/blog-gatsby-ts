@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery, navigate } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import ContentfulRichText from '../components/contentfulRichText';
+import Footer from '../components/footer';
 
 export const query = graphql`
   query BlogPagesQuery {
@@ -43,7 +44,7 @@ const BlogPosts = ({data}: Props) => {
         {documents.map(node => {
           console.log(node.json)
           return (
-            <div key={node.id} className="post-link-container">
+            <div key={node.id} className="post-link-container" onClick={() => {navigate(`/${node.slug}`)}}>
               <Link className="post-link"
               to={`/${node.slug}`} 
               key={`${node.id}-title`}>
@@ -56,6 +57,7 @@ const BlogPosts = ({data}: Props) => {
           );
         })}
       </div>
+      <Footer/>
     </Layout>
   )
 }
