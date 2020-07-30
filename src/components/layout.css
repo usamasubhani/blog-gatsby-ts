@@ -749,11 +749,14 @@ pre tt::after {
 
 
 /* custom */
-
+.violet {
+  color: blueviolet;
+}
 .post-link-container {
-  max-width: 35%;
+  width: 35%;
+  text-align: center;
   /* border-radius: 50px; */
-  border: 0.1px solid gray;
+  /* border: 0.1px solid gray; */
   border-radius: 17px;
   background: #ffffff;
   background: #ffffff;
@@ -773,13 +776,8 @@ pre tt::after {
 .post-link {
   display: block;
   text-decoration: none;
-  font-size: 30px;
-  color: blueviolet;
-  /* margin-top: 50px;
-  margin-bottom: 10px; */
-
   
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0.67em 0;
   margin-left: 0;
   margin-right: 0;
@@ -818,7 +816,7 @@ pre tt::after {
     font-size: 100%;
   }
   .post-link-container {
-    max-width: 100%; 
+    width: 100%; 
     margin: 30px 5px 30px 5px;
   }
 }

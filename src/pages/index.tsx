@@ -50,14 +50,13 @@ const BlogPosts = ({data}: Props) => {
               key={`${node.id}-title`}>
                 {node.title}
               </Link>
-              <ContentfulRichText 
+              {/* <ContentfulRichText 
                 document={node.json.content[0]}
-                />
+                /> */}
             </div>
           );
         })}
       </div>
-      <Footer/>
     </Layout>
   )
 }
