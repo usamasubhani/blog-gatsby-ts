@@ -53,6 +53,26 @@ const Header: React.FC<Props> = ({ siteTitle }: Props) => (
         >
           twitter
         </Link>
+        <span  > | </span>
+        <Link
+          to="https://github.com/usamasubhani"
+          style={{
+            // color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          github
+        </Link>
+        <span  > | </span>
+        <Link
+          to="https://www.linkedin.com/in/usamasubhani/"
+          style={{
+            // color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          linkedin
+        </Link>
       </h3>
     </div>
   </header>
