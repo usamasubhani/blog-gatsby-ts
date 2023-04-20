@@ -16,7 +16,7 @@
     "gatsby-plugin-manifest": "^2.2.21",
     "gatsby-plugin-offline": "^3.2.7",
     "gatsby-plugin-react-helmet": "^3.3.2",
-    "gatsby-plugin-sharp": "^2.2.29",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-typescript": "^2.4.3",
     "gatsby-source-contentful": "^2.3.32",
     "gatsby-source-filesystem": "^2.3.14",
